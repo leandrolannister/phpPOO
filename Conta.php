@@ -10,23 +10,39 @@ class Conta {
   {
     if ($valorASacar > $this->saldo) {
       echo "Saldo indisponível";
-    } else {
-      $this->saldo -= $valorASacar;
-    }
+      return;
+    }     
+    $this->saldo -= $valorASacar;    
   }
 
   public function depositar(float $valorADepositar): void
   {
     if ($valorADepositar < 0) {
       echo "Valor precisa ser positivo";
-    } else {
-      $this->saldo += $valorADepositar;
-    }
+      return;
+    }    
+    $this->saldo += $valorADepositar;    
+  }
+
+  public function transferir(float $valor, Conta $conta):void
+  {
+    if ($this->saldo < $valor){
+      echo" Saldo indisponível";
+      return;
+    }    
+    $conta->saldo = $valor;
+    $this->sacar($valor);    
   }
 }
 
+$c1 = new Conta();
 $c = new Conta();
-$c->depositar(900);
-$c->sacar(300);
-echo $c->saldo;
+$c->depositar(100);
+$c->transferir(70,$c1);
+
+echo "Saldo c:" . $c->saldo . PHP_EOL;
+echo "Saldo c_1:" . $c1->saldo . PHP_EOL;
+
+
+
 
