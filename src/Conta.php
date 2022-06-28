@@ -33,16 +33,28 @@ class Conta {
     $conta->saldo = $valor;
     $this->sacar($valor);    
   }
+
+  public function getCpf():string
+  {
+    return $this->cpf;
+  }
+
+  public function setCpf($cpf):void
+  {
+    $this->cpf = $cpf;
+  }
+
+  public function getTitular():string
+  {
+    return $this->titular;
+  }
+
+  public function setTitular($titular):void
+  {
+    $this->titular = $titular;
+  }
+
+  public function getSaldo(): float{
+     return $this->saldo;
+  }
 }
-
-$c1 = new Conta();
-$c = new Conta();
-$c->depositar(100);
-$c->transferir(70,$c1);
-
-echo "Saldo c:" . $c->saldo . PHP_EOL;
-echo "Saldo c_1:" . $c1->saldo . PHP_EOL;
-
-
-
-
