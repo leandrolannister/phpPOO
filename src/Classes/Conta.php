@@ -4,7 +4,14 @@ class Conta {
 
   private $cpf;
   private $titular;
-  private $saldo = 0;
+  private $saldo;
+
+  public function __construct(string $cpf, string $titular)
+  {
+     $this->cpf = $cpf;
+     $this->titular = $titular;
+     $this->saldo = 0;
+  }
 
   public function sacar(float $valorASacar): void
   {
@@ -39,19 +46,9 @@ class Conta {
     return $this->cpf;
   }
 
-  public function setCpf($cpf):void
-  {
-    $this->cpf = $cpf;
-  }
-
   public function getTitular():string
   {
     return $this->titular;
-  }
-
-  public function setTitular($titular):void
-  {
-    $this->titular = $titular;
   }
 
   public function getSaldo(): float{

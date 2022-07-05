@@ -1,10 +1,8 @@
 <?php 
 
-require('./src/Conta.php');
+require('./src/Classes/Conta.php');
 
-$conta = new Conta();
-$conta->setCpf('225');
-$conta->setTitular('Soares');
+$conta = new Conta(225,'Leandro');
 $conta->depositar(100);
 $conta->sacar(50);
 
