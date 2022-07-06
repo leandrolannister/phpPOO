@@ -8,6 +8,7 @@ class Conta {
 
   public function __construct(string $cpf, string $titular)
   {
+     $this->validaNomeTitular($titular);
      $this->cpf = $cpf;
      $this->titular = $titular;
      $this->saldo = 0;
@@ -53,5 +54,13 @@ class Conta {
 
   public function getSaldo(): float{
      return $this->saldo;
+  }
+
+  private function validaNomeTitular($nome)
+  {
+      if (strlen($nome) <= 3){
+        echo "Nome precisa ter pelo menos 3 caracteres";
+        die;
+      }      
   }
 }
