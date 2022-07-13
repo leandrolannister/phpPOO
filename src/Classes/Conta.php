@@ -2,15 +2,12 @@
 
 class Conta {
 
-  private $cpf;
   private $titular;
   private $saldo;
   private static $numContas = 0;
 
-  public function __construct(string $cpf, string $titular)
+  public function __construct(Titular $titular)
   {
-     $this->validaNomeTitular($titular);
-     $this->cpf = $cpf;
      $this->titular = $titular;
      $this->saldo = 0;
      self::$numContas++;
@@ -43,28 +40,15 @@ class Conta {
     $conta->saldo = $valor;
     $this->sacar($valor);    
   }
-
-  public function getCpf():string
-  {
-    return $this->cpf;
-  }
-
-  public function getTitular():string
+  
+  public function getTitular():Titular
   {
     return $this->titular;
   }
 
   public function getSaldo(): float{
      return $this->saldo;
-  }
-
-  private function validaNomeTitular($nome)
-  {
-      if (strlen($nome) <= 3){
-        echo "Nome precisa ter pelo menos 3 caracteres";
-        die;
-      }      
-  }
+  }  
 
   public static function countContas()
   {
