@@ -1,6 +1,7 @@
 <?php 
 
 require('./src/Classes/Conta.php');
+require('./src/Classes/Pessoa.php');
 require('./src/Classes/Titular.php');
 require('./src/Classes/CPF.php');
 require('./src/Classes/Endereco.php');
